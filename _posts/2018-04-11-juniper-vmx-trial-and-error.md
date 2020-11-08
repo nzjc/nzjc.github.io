@@ -10,7 +10,9 @@ permalink: /juniper-vmx-trial-and-error/
 categories:
   - Uncategorized
 ---
-I have spent some time scratching my head on ESXi-based VMX and I thought I would share some experience. This isn&#8217;t meant to be a guide, or replace Juniper&#8217;s own docs, but to supplement (and help me remember stuff 2 years later).
+I have spent some time scratching my head on ESXi-based VMX and I thought I would share some experience. This isn't meant to be a guide, or replace Juniper's own docs, but to supplement (and help me remember stuff 2 years later).
+
+<!--end_excerpt-->
 
 **My setup:**
 
@@ -26,7 +28,7 @@ The br-ext port group is just on an existing DHCP enabled vSwitch, and I can SSH
 
 The br-int port group is on its own dedicated vSwitch. All my vSwitches have MTU 9000, all security options enabled (promiscuous mode, mac forging etc.. All on).
 
-My two &#8216;WAN&#8217; interfaces, which are vNIC 3 and 4 under ESXi are there to prove things are working (I have a Linux VM attached to each, via a dedicated vSwitch/port group each). I run simple iperf tests across them, no routing protocols involved at this stage. In this lab/test I am using no physical NIC, so there is no bottleneck &#8211; nor is this a particularly realistic test for the real world deployment of VMX.
+My two 'WAN' interfaces, which are vNIC 3 and 4 under ESXi are there to prove things are working (I have a Linux VM attached to each, via a dedicated vSwitch/port group each). I run simple iperf tests across them, no routing protocols involved at this stage. In this lab/test I am using no physical NIC, so there is no bottleneck - nor is this a particularly realistic test for the real world deployment of VMX.
 
 **My topology is:**
 
@@ -34,13 +36,13 @@ VM1 &#8212; VMX &#8212; VM2
 
 <img loading="lazy" class="alignnone size-full wp-image-221" src="https://i2.wp.com/blog.dical.org/wp-content/uploads/2018/04/topology_vmx.png?resize=681%2C319&#038;ssl=1" alt="" width="681" height="319" srcset="https://i2.wp.com/blog.dical.org/wp-content/uploads/2018/04/topology_vmx.png?w=681&ssl=1 681w, https://i2.wp.com/blog.dical.org/wp-content/uploads/2018/04/topology_vmx.png?resize=300%2C141&ssl=1 300w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" data-recalc-dims="1" /> 
 
-Confusingly for you, my VM1 and VM2 are actually called Bird and Space Host. Don&#8217;t ask. Again, I am using a vSwitch as a cable between VM and VMX, with no physical cabling required. The br-ext link connects vCP, vFPC and an external network for management.
+Confusingly for you, my VM1 and VM2 are actually called Bird and Space Host. Don't ask. Again, I am using a vSwitch as a cable between VM and VMX, with no physical cabling required. The br-ext link connects vCP, vFPC and an external network for management.
 
 **Lite-mode Vs Performance mode:**
 
-By default, VMX runs in performance mode. I find on ESXi (due to dpdk polling), that performance mode absolutely kills my allocated CPU threads. My ESXi reports running around 95% CPU load when a performance mode FPC is sitting _idle_. I find this has a major impact on TCP throughput, as well as making the ESXi box hopeless for doing other tasks. I am not a kernel expert, so I don&#8217;t really understand the implications of this CPU load.. I will leave it alone.
+By default, VMX runs in performance mode. I find on ESXi (due to dpdk polling), that performance mode absolutely kills my allocated CPU threads. My ESXi reports running around 95% CPU load when a performance mode FPC is sitting _idle_. I find this has a major impact on TCP throughput, as well as making the ESXi box hopeless for doing other tasks. I am not a kernel expert, so I don't really understand the implications of this CPU load.. I will leave it alone.
 
-The real issue I had with VMX was before I even got off the ground. I was using the vFPC with 4 NIC (2 for bridges, 2 for ge- ports). By default, I assigned e1000 virtio NICs to the VM. This ended with me being stuck in &#8216;Present Absent&#8217;, which is what &#8216;show chassis fpc&#8217; would show me for FPC 0. By default, you are in performance mode &#8211; and that doesn&#8217;t like e1000 NICs. Change the two &#8220;ge-&#8221; interfaces, in my case vmnic3 and vmnic4 to &#8216;VMXNET3&#8217; and it fires up and starts passing packets. This appears to be a bug specific to Junos 17.4R1 &#8211; according to a phone-call I had with JTAC.
+The real issue I had with VMX was before I even got off the ground. I was using the vFPC with 4 NIC (2 for bridges, 2 for ge- ports). By default, I assigned e1000 virtio NICs to the VM. This ended with me being stuck in 'Present Absent', which is what 'show chassis fpc' would show me for FPC 0. By default, you are in performance mode - and that doesn't like e1000 NICs. Change the two "ge-" interfaces, in my case vmnic3 and vmnic4 to 'VMXNET3' and it fires up and starts passing packets. This appears to be a bug specific to Junos 17.4R1 - according to a phone-call I had with JTAC.
 
 As I have 1Gbit/s licenses for the VMX, lite-mode is fine.
 
@@ -52,7 +54,7 @@ Starting with the vCP OVA:<figure id="attachment_212" aria-describedby="caption-
 
 <img loading="lazy" class="wp-image-212 size-full" src="https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vcp_details.png?resize=604%2C627&#038;ssl=1" alt="" width="604" height="627" srcset="https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vcp_details.png?w=604&ssl=1 604w, https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vcp_details.png?resize=289%2C300&ssl=1 289w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" data-recalc-dims="1" /> <figcaption id="caption-attachment-212" class="wp-caption-text">VMWare details of vCP VM</figcaption></figure> 
 
-I&#8217;ve set the machine to have 1 CPU, 4GB of RAM and I&#8217;m using two port-groups for the NICs, br-ext and br-int, as described earlier in this post.
+I've set the machine to have 1 CPU, 4GB of RAM and I'm using two port-groups for the NICs, br-ext and br-int, as described earlier in this post.
 
 I also upgraded the VM hardware version to 13 (the OVA comes as version 10). This was based on a blog post I read in the middle of the night. I wish I could say why this mattered (JTAC suggested this only improves things when using KVM-based VMX and SR-IOV, but hey).<figure id="attachment_213" aria-describedby="caption-attachment-213" style="width: 446px" class="wp-caption alignnone">
 
@@ -62,19 +64,19 @@ Now onto the vFPC VM:<figure id="attachment_214" aria-describedby="caption-attac
 
 <img loading="lazy" class="size-full wp-image-214" src="https://i2.wp.com/blog.dical.org/wp-content/uploads/2018/04/vfpc_details.png?resize=605%2C749&#038;ssl=1" alt="" width="605" height="749" srcset="https://i2.wp.com/blog.dical.org/wp-content/uploads/2018/04/vfpc_details.png?w=605&ssl=1 605w, https://i2.wp.com/blog.dical.org/wp-content/uploads/2018/04/vfpc_details.png?resize=242%2C300&ssl=1 242w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" data-recalc-dims="1" /> <figcaption id="caption-attachment-214" class="wp-caption-text">VMWare details of vFPC VM</figcaption></figure> 
 
-As you can see in the screenshot, I have set the 16GB of memory to be reserved. This helped with performance, particularly of my testing VMs running on the same host. I have also expanded one of my &#8216;WAN&#8217; interfaces to show that it&#8217;s an E1000 NIC connecting to one of my Linux hosts.
+As you can see in the screenshot, I have set the 16GB of memory to be reserved. This helped with performance, particularly of my testing VMs running on the same host. I have also expanded one of my 'WAN' interfaces to show that it's an E1000 NIC connecting to one of my Linux hosts.
 
 The VM hardware version of my working vFPC is version 10.<figure id="attachment_215" aria-describedby="caption-attachment-215" style="width: 443px" class="wp-caption alignnone">
 
 <img loading="lazy" class="size-full wp-image-215" src="https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vfpc_summary.png?resize=443%2C149&#038;ssl=1" alt="" width="443" height="149" srcset="https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vfpc_summary.png?w=443&ssl=1 443w, https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vfpc_summary.png?resize=300%2C101&ssl=1 300w" sizes="(max-width: 443px) 85vw, 443px" data-recalc-dims="1" /> <figcaption id="caption-attachment-215" class="wp-caption-text">Summary of vFPC</figcaption></figure> 
 
-It&#8217;s best to set up all of this hardware in advance of switching either of the VMs on. Once you do, your vFPC should pull down a DHCP address from your br-ext bridge (mine is set up as a port group on my vSwitch0, which also shares kernel management for the ESXi itself). The vCP won&#8217;t get a DHCP address by default, as that&#8217;s not supported on fxp interfaces. I configure mine via the ESXi console.
+It's best to set up all of this hardware in advance of switching either of the VMs on. Once you do, your vFPC should pull down a DHCP address from your br-ext bridge (mine is set up as a port group on my vSwitch0, which also shares kernel management for the ESXi itself). The vCP won't get a DHCP address by default, as that's not supported on fxp interfaces. I configure mine via the ESXi console.
 
 **Is it working?**
 
-Once you&#8217;ve booted both VMs, you will need to give them about 4-5 minutes. From my own bashing around in the log files, it seems that the vFPC pulls down some config from the vCP and then starts up RIOT, the process which is meant to emulate the MX series&#8217; Trio chipset.
+Once you've booted both VMs, you will need to give them about 4-5 minutes. From my own bashing around in the log files, it seems that the vFPC pulls down some config from the vCP and then starts up RIOT, the process which is meant to emulate the MX series' Trio chipset.
 
-Note &#8211; under 17.4R1.16, the vFPC won&#8217;t work correctly by default (we set our interfaces to e1000) &#8211; so you will need to do the following to enable lite-mode, from the vCP CLU (login as root, no password. Then enter &#8216;cli&#8217;)
+Note - under 17.4R1.16, the vFPC won't work correctly by default (we set our interfaces to e1000) - so you will need to do the following to enable lite-mode, from the vCP CLU (login as root, no password. Then enter 'cli')
 
 <pre class="lang:default decode:true ">james@ch-vmx-1&gt; edit private
 [edit]
@@ -83,7 +85,7 @@ james@ch-vmx-1# commit and-quit
 
 james@ch-vmx-1&gt; request system reboot [Y]</pre>
 
-This (plus a reboot of the vFPC VM for good measure) will put you into lite-mode. Once this reboot (~5mins) process has finished, you can check 2 important things from the vCP CLI. First, check the chassis hardware and see if we&#8217;re in lite-mode for real:
+This (plus a reboot of the vFPC VM for good measure) will put you into lite-mode. Once this reboot (~5mins) process has finished, you can check 2 important things from the vCP CLI. First, check the chassis hardware and see if we're in lite-mode for real:
 
 <pre class="lang:default decode:true ">james@ch-vmx-1&gt; show chassis hardware
 Hardware inventory:
@@ -98,7 +100,7 @@ FPC 0                                                    Virtual FPC
     PIC 0                 BUILTIN      BUILTIN           Virtual
 </pre>
 
-From here, you can see FPC 0&#8217;s CPU is listed as RIOT-LITE. That&#8217;s what we wanna see.
+From here, you can see FPC 0's CPU is listed as RIOT-LITE. That's what we wanna see.
 
 Next, you can check the status of the FPC itself:
 
@@ -108,9 +110,9 @@ Slot State            (C)  Total  Interrupt      1min   5min   15min  DRAM (MB) 
   0  Online           Testing   4         0        3      4      4    2047        7          0
 </pre>
 
-This garbled-by-my-wordpress-theme output shows the FPC in slot 0 is up and running. The temperatire will never move on from &#8216;testing&#8217; as it&#8217;s not a real probe (but it is on a real Trio-based FPC!)
+This garbled-by-my-wordpress-theme output shows the FPC in slot 0 is up and running. The temperatire will never move on from 'testing' as it's not a real probe (but it is on a real Trio-based FPC!)
 
-To test the performance (another post on that one day, perhaps) &#8211; I fire some packets from VM1 to VM2. They rely on the VMX to do the routing, as they are in different subnets. I&#8217;m using some quite expensive hardware/software here to send a few packets around a pretend network &#8211; but it proves the thing works:
+To test the performance (another post on that one day, perhaps) - I fire some packets from VM1 to VM2. They rely on the VMX to do the routing, as they are in different subnets. I'm using some quite expensive hardware/software here to send a few packets around a pretend network - but it proves the thing works:
 
 <pre class="lang:default decode:true">[client - sender]
 james@VM1:~$ iperf -c 172.16.200.1 -i 1
@@ -159,9 +161,9 @@ So there we go, a VMX in lite-mode, throwing 1Gbit/s of iperf traffic around.
 
 Getting to this stage took me a while, so here are some things you might be finding are going wrong trying to use ESXi and VMX together.
 
-1- Can&#8217;t access vFPC
+1- Can't access vFPC
 
-This might be caused by a fairly random problem I&#8217;ve seen in 17.4R1 where 2 of the 3 NICs that the vFPC automatically stands up don&#8217;t show. You will be left with &#8216;int&#8217; only. Console into the vFPC and have a look (root/root will get you in):
+This might be caused by a fairly random problem I've seen in 17.4R1 where 2 of the 3 NICs that the vFPC automatically stands up don't show. You will be left with 'int' only. Console into the vFPC and have a look (root/root will get you in):
 
 <pre class="lang:sh decode:true ">root@localhost:~# ifconfig| grep Link
 ext       Link encap:Ethernet  HWaddr 00:50:56:9f:94:8b
@@ -169,9 +171,9 @@ int       Link encap:Ethernet  HWaddr 00:50:56:9f:03:28
 lo        Link encap:Local Loopback
 </pre>
 
-That shows 3, so in my case it&#8217;s working as you&#8217;d hope
+That shows 3, so in my case it's working as you'd hope
 
-2 &#8211; Throughput sucks
+2 - Throughput sucks
 
 Check your VMX license is applied. Even the trial license is good enough for most lab cases.
 

@@ -12,8 +12,10 @@ categories:
 ---
 This is mostly a note to self.
 
-3CDaemon was always my Windows TFTP server of choice, but finding a valid .exe that works on Windows 7 64bit and isn&#8217;t riddled with viruses is a problem when you&#8217;re in a hurry. Ph Jounin has written the lovely Tftpd64. You can get it from the main site [here](http://tftpd32.jounin.net/tftpd32_download.html) (and in 32bit flavours if you like). I&#8217;ll upload the zip here too, incase it ever goes offline.
+3CDaemon was always my Windows TFTP server of choice, but finding a valid .exe that works on Windows 7 64bit and isn't riddled with viruses is a problem when you're in a hurry. Ph Jounin has written the lovely Tftpd64. You can get it from the main site [here](http://tftpd32.jounin.net/tftpd32_download.html) (and in 32bit flavours if you like). I'll upload the zip here too, incase it ever goes offline.
 
-I don&#8217;t mind if you never want to trust a download from a random blog, but for my own stress levels, now I have it in the cloud 🙂
+<!--end_excerpt-->
+
+I don't mind if you never want to trust a download from a random blog, but for my own stress levels, now I have it in the cloud 🙂
 
 [tftpd64.452](https://blog.dical.org/wp-content/uploads/2016/08/tftpd64.452.zip)

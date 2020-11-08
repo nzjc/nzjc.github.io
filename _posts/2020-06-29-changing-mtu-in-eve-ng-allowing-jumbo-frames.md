@@ -13,15 +13,17 @@ tags:
   - mtu
   - networking
 ---
-EVE-NG rules. As far as network simulation software goes, it&#8217;s the best.
+EVE-NG rules. As far as network simulation software goes, it's the best.
 
-When studying or otherwise, EVE-NG is the way I prefer to try things out. One thing that happens, however, when using virtualised networks, is you obscure some underlaying things &#8211; one of them being MTU. In a [previous post](https://blog.dical.org/?p=258), I went through how the base OS that EVE-NG runs on virtualises the links between routers and switches, here I will show a way to boost the MTU these virtual network links use, so that we can throw proper jumbos across the network.
+When studying or otherwise, EVE-NG is the way I prefer to try things out. One thing that happens, however, when using virtualised networks, is you obscure some underlaying things - one of them being MTU. In a [previous post](https://blog.dical.org/?p=258), I went through how the base OS that EVE-NG runs on virtualises the links between routers and switches, here I will show a way to boost the MTU these virtual network links use, so that we can throw proper jumbos across the network.
 
-In this topology, I have 2 routers, connected with dual Ethernet links, configured in a LAG. This doesn&#8217;t affect MTU at all, I just thought I&#8217;d mention it so it&#8217;s not confusing.
+In this topology, I have 2 routers, connected with dual Ethernet links, configured in a LAG. This doesn't affect MTU at all, I just thought I'd mention it so it's not confusing.
 
 <figure id="attachment_317" aria-describedby="caption-attachment-317" style="width: 235px" class="wp-caption aligncenter"><img loading="lazy" class="wp-image-317 size-full" src="https://i1.wp.com/blog.dical.org/wp-content/uploads/2020/06/topo.png?resize=235%2C93&#038;ssl=1" alt="" width="235" height="93" data-recalc-dims="1" /><figcaption id="caption-attachment-317" class="wp-caption-text">Topology of this little lab</figcaption></figure>
 
-The link between these routers (ae0) is set to a layer-2 MTU of 9192, which is the maximum for the platform (Juniper vSRX 3.0). This means that we should be able to send an IP packet (like a ping) of over 9000 bytes.. And yet &#8211; we can&#8217;t:
+The link between these routers (ae0) is set to a layer-2 MTU of 9192, which is the maximum for the platform (Juniper vSRX 3.0). This means that we should be able to send an IP packet (like a ping) of over 9000 bytes.. And yet - we can't:
+
+<!--end_excerpt-->
 
 <pre><code class="language-markup">root@R1&gt; ping 2.2.2.2 size 9001 do-not-fragment
 PING 2.2.2.2 (2.2.2.2): 9001 data bytes
@@ -29,9 +31,9 @@ PING 2.2.2.2 (2.2.2.2): 9001 data bytes
 --- 2.2.2.2 ping statistics ---
 4 packets transmitted, 0 packets received, 100% packet loss</code></pre>
 
-So &#8211; let&#8217;s first see why, then fix it.
+So - let's first see why, then fix it.
 
-If we SSH onto our EVE-NG server, and take a look at the virtual network that makes up the link between ge-0/0/1 on R1 and ge-0/0/1 on R2, as well as ge-0/0/2 on both as well (since we&#8217;re in a 2 member LAG). See [previous post](https://blog.dical.org/?p=258) for more detail on how to track down which link is which and what they&#8217;re called inside EVE-NG&#8217;s OS:
+If we SSH onto our EVE-NG server, and take a look at the virtual network that makes up the link between ge-0/0/1 on R1 and ge-0/0/1 on R2, as well as ge-0/0/2 on both as well (since we're in a 2 member LAG). See [previous post](https://blog.dical.org/?p=258) for more detail on how to track down which link is which and what they're called inside EVE-NG's OS:
 
 <pre><code class="language-markdown">root@eve-ng-2:~# ifconfig vunl0_26_2
 vunl0_26_2 Link encap:Ethernet  HWaddr d6:41:90:79:cb:60
@@ -41,7 +43,7 @@ vunl0_26_2 Link encap:Ethernet  HWaddr d6:41:90:79:cb:60
           collisions:0 txqueuelen:1000
           RX bytes:66286 (66.2 KB)  TX bytes:88080 (88.0 KB)</code></pre>
 
-There it is. At layer-2, we have MTU 9000. As the virtual routers are assuming a piece of wire with no MTU at all connecting them to the other side, there is a problem. I think I&#8217;m MTU 9126, but in reality I&#8217;m down to 9000 on the wire. Which explains why I can send a ping that&#8217;s _nearly_ 9000 bytes:
+There it is. At layer-2, we have MTU 9000. As the virtual routers are assuming a piece of wire with no MTU at all connecting them to the other side, there is a problem. I think I'm MTU 9126, but in reality I'm down to 9000 on the wire. Which explains why I can send a ping that's _nearly_ 9000 bytes:
 
 <pre><code class="language-markdown">root@R1&gt; ping 2.2.2.2 size 8976 do-not-fragment
 PING 2.2.2.2 (2.2.2.2): 8976 data bytes
@@ -53,14 +55,14 @@ PING 2.2.2.2 (2.2.2.2): 8976 data bytes
 
 Oh yeah. 8976 bytes at layer 3, plus IP and ethernet headers = 9000.
 
-So &#8211; let&#8217;s isolate the 4 network interfaces that EVE-NG has generated to be my ge-0/0/1&#8217;s and ge-0/0/2&#8217;s, then set the MTUs to something high &#8211; like 9200:
+So - let's isolate the 4 network interfaces that EVE-NG has generated to be my ge-0/0/1's and ge-0/0/2's, then set the MTUs to something high - like 9200:
 
 <pre><code class="language-markdown">root@eve-ng-2:~# ifconfig vunl0_26_2 mtu 9200
 root@eve-ng-2:~# ifconfig vunl0_26_3 mtu 9200
 root@eve-ng-2:~# ifconfig vunl0_27_2 mtu 9200
 root@eve-ng-2:~# ifconfig vunl0_27_3 mtu 9200</code></pre>
 
-When EVE-NG creates a &#8216;wire&#8217; between two network devices, it really creates 2 virtual network interfaces and assigns each of them to a Linux bridge. In my case, with 4 total interfaces, I have two bridges. They inherit the MTU of the smallest member, so both of my bridges now should be 9200:
+When EVE-NG creates a 'wire' between two network devices, it really creates 2 virtual network interfaces and assigns each of them to a Linux bridge. In my case, with 4 total interfaces, I have two bridges. They inherit the MTU of the smallest member, so both of my bridges now should be 9200:
 
 <pre><code class="language-markdown">root@eve-ng-2:~# ifconfig vnet0_37
 vnet0_37  Link encap:Ethernet  HWaddr 0a:c8:48:ad:34:71
@@ -88,6 +90,6 @@ Oh yes we can.
 
 * * *
 
-Note &#8211; this is not a permanent fix &#8211; it will last only as long as the virtual interfaces (or a server reboot) &#8211; and you need to do it for every link that is created. Perhaps it&#8217;s something to submit as a feature request to the EVE-NG team &#8211; but for now this will let us live in jumbo-harmony. Network links are ephemeral in EVE-NG, so statically setting this with a config file isn&#8217;t a great solution &#8211; but on the other hand we don&#8217;t drop our labs all that often &#8211; do we?
+Note - this is not a permanent fix - it will last only as long as the virtual interfaces (or a server reboot) - and you need to do it for every link that is created. Perhaps it's something to submit as a feature request to the EVE-NG team - but for now this will let us live in jumbo-harmony. Network links are ephemeral in EVE-NG, so statically setting this with a config file isn't a great solution - but on the other hand we don't drop our labs all that often - do we?
 
 &nbsp;

@@ -12,33 +12,35 @@ frutiful_posts_template:
 categories:
   - Uncategorized
 ---
-Installing Smokeping on Ubuntu used to be a total breeze. Since 14.04 however, it&#8217;s been a bit of a mission.
+Installing Smokeping on Ubuntu used to be a total breeze. Since 14.04 however, it's been a bit of a mission.
 
-> This guide assumes a fresh out of the box Ubuntu install. I&#8217;m using the 64bit Server variety, but this should work on any 14.04 system.
+> This guide assumes a fresh out of the box Ubuntu install. I'm using the 64bit Server variety, but this should work on any 14.04 system.
 > 
-> UPDATE &#8211; It also works perfectly on Ubuntu 16.04 LTS Server :~)
+> UPDATE - It also works perfectly on Ubuntu 16.04 LTS Server :~)
 
-Note &#8211; I am a noob with Apache and a relative noob with Linux, but even I got it to work fairly painlessly.
+<!--end_excerpt-->
 
-**Step 1:** install smokeping (aaand you&#8217;re done).  
+Note - I am a noob with Apache and a relative noob with Linux, but even I got it to work fairly painlessly.
+
+**Step 1:** install smokeping (aaand you're done).  
 _ sudo apt-get install smokeping -y_
 
-**Step 2:**  normally, you&#8217;d be done by now.. But things have changed.  
+**Step 2:**  normally, you'd be done by now.. But things have changed.  
 _ sudo nano /etc/smokeping/config.d/pathnames_
 
-You&#8217;re going to want to go into the _pathnames_ file and comment out the line about mail. Setting up mail to work with smokeping is outside the scope of this post. Because I&#8217;m lazy.
+You're going to want to go into the _pathnames_ file and comment out the line about mail. Setting up mail to work with smokeping is outside the scope of this post. Because I'm lazy.
 
 Do this: _#sendmail = /usr/sbin/sendmail  
-_ Then hit CTRL-O, Enter, CTRL-X. That&#8217;s how you save a file in Nano, I won&#8217;t stick that bit in again.
+_ Then hit CTRL-O, Enter, CTRL-X. That's how you save a file in Nano, I won't stick that bit in again.
 
-**Step 3:** If you made it this far, you&#8217;re going to be fine. Start &#8216;er up&#8230;  
+**Step 3:** If you made it this far, you're going to be fine. Start 'er up...  
  _sudo service smokeping start_
 
 **Step 4: **Head over to a web browser and enter the IP of your server/cgi-bin/smokeping.cgi  
 (Hint: it will fail, giving you a 404 error).  
-(Hint 2: you can find the IP address of your server by entering _ifconfig_, it&#8217;s typically eth0)
+(Hint 2: you can find the IP address of your server by entering _ifconfig_, it's typically eth0)
 
-**Step 5: **It&#8217;s not working because you&#8217;re missing a couple of things. One is a slight config change in a smokeping config file,  one is some missing symlinks.. the other is (likely) the cgi module for Apache2 isn&#8217;t enabled. Fix it!
+**Step 5: **It's not working because you're missing a couple of things. One is a slight config change in a smokeping config file,  one is some missing symlinks.. the other is (likely) the cgi module for Apache2 isn't enabled. Fix it!
 
  _sudo nano /etc/smokeping/config.d/General_
 
@@ -53,13 +55,13 @@ Next you want to edit the following Apache config file:
 
 Under the lines
 
-_<span style="line-height: 1.5;">&#8220;Require all granted<br /> </span><span style="line-height: 1.5;">     </Directory>&#8221;</span>_
+_<span style="line-height: 1.5;">"Require all granted<br /> </span><span style="line-height: 1.5;">     </Directory>"</span>_
 
 You want to add:
 
  _ScriptAlias /smokeping/smokeping.cgi /usr/lib/cgi-bin/smokeping.cgi_  
 _ Alias /smokeping /usr/share/smokeping/www_  
-_ <Directory &#8220;/usr/share/smokeping/www&#8221;>_  
+_ <Directory "/usr/share/smokeping/www">_  
 _ Options FollowSymLinks_  
 _ </Directory>_
 
@@ -74,6 +76,6 @@ sudo service smokeping restart_
 
 Now head back to your browser, throw in 10.10.10.10/cgi-bin/smokeping.cgi
 
-It should work&#8230; If not, drop me a line.
+It should work... If not, drop me a line.
 
 &nbsp;

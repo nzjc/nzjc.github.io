@@ -12,7 +12,9 @@ categories:
 ---
 This ranks highly on the nerd-alert scale, but anyway, here we are.
 
-Putty has a nice feature where you can select a word with a double click. It&#8217;s really handy, especially when you are dealing with IPv4 prefixes. It doesn’t work with IPv6 addresses by default. You can edit what Putty uses as a delimiter, under Settings -> Selection.
+Putty has a nice feature where you can select a word with a double click. It's really handy, especially when you are dealing with IPv4 prefixes. It doesn’t work with IPv6 addresses by default. You can edit what Putty uses as a delimiter, under Settings -> Selection.
+
+<!--end_excerpt-->
 
 [<img loading="lazy" class="aligncenter size-medium wp-image-53" src="https://i2.wp.com/blog.dical.org/wp-content/uploads/2015/09/putty.png?resize=300%2C266&#038;ssl=1" alt="putty" width="300" height="266" srcset="https://i2.wp.com/blog.dical.org/wp-content/uploads/2015/09/putty.png?resize=300%2C266&ssl=1 300w, https://i2.wp.com/blog.dical.org/wp-content/uploads/2015/09/putty.png?w=615&ssl=1 615w" sizes="(max-width: 300px) 85vw, 300px" data-recalc-dims="1" />](https://i2.wp.com/blog.dical.org/wp-content/uploads/2015/09/putty.png?ssl=1)
 

@@ -12,11 +12,13 @@ frutiful_posts_template:
 categories:
   - Uncategorized
 ---
-Quick and hacky &#8211; that&#8217;s the way you have to Streetpass in New Zealand, as you get so few legit matches out and about.
+Quick and hacky - that's the way you have to Streetpass in New Zealand, as you get so few legit matches out and about.
 
 To setup your own home Streetpass service is easy.
 
-  * Setup a new SSID on your router, as a virtual ap &#8211; call it attwifi
+<!--end_excerpt-->
+
+  * Setup a new SSID on your router, as a virtual ap - call it attwifi
   * Dupe the MAC address on the new virtual AP to 4E:53:50:4F:4F:46
   * Stick that SSID in your local bridge and setup some security
   * Join your 3DS to the attwifi SSID and away you go

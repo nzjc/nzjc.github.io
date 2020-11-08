@@ -30,6 +30,14 @@ name: James Burnett
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+
+paginate: 5
+
+
+## Extra nice things
+show_excerpts: true
+excerpt_separator: <!--end_excerpt-->
 
 # Exclude from processing.
 # The following items will not be processed, by default.

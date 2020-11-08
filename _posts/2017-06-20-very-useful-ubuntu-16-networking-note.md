@@ -10,7 +10,9 @@ permalink: /very-useful-ubuntu-16-networking-note/
 categories:
   - Uncategorized
 ---
-I hate when things change for no good reason. This week, it&#8217;s the interface naming of ethernet on Ubuntu 16. No more does it default to &#8216;eth0&#8217;.. It uses some other &#8216;ens&#8217; style.. Garbage!
+I hate when things change for no good reason. This week, it's the interface naming of ethernet on Ubuntu 16. No more does it default to 'eth0'.. It uses some other 'ens' style.. Garbage!
+
+<!--end_excerpt-->
 
 First up, find your ethernet interfaces (this VM has 1 interface to start):
 
@@ -24,9 +26,9 @@ Fix it by editing your grub config:
 
 <pre class="lang:default decode:true ">sudo nano /etc/default/grub</pre>
 
-Change the line <span class="lang:default decode:true crayon-inline ">GRUB_CMDLINE_LINUX=&#8221;&#8221;</span>
+Change the line <span class="lang:default decode:true crayon-inline ">GRUB_CMDLINE_LINUX=""</span>
 
-to  <span class="lang:default decode:true crayon-inline">GRUB_CMDLINE_LINUX=&#8221;net.ifnames=0 biosdevname=0&#8243;</span>
+to  <span class="lang:default decode:true crayon-inline">GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0&#8243;</span>
 
 Regenerate your grub file:
 

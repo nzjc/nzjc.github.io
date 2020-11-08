@@ -14,6 +14,8 @@ categories:
 
 For some reason, networking in Linux keeps on changing. Not only changing the well known naming scheme for ethernet interfaces (why), but now the way to manually set up IP addressing, VLANs etc in Ubuntu 18 has changed. Gone is the simple to use /etc/networking/interfaces file, and in its place some YAML and a new tool, netplan. Fine..
 
+<!--end_excerpt-->
+
 I needed to add a VLAN tagged interface to a physical NIC, which I used to call eth1.. So what I ended up doing was creating this YAML file in the /etc/netplan directory and putting in the following config:
 
 <pre><code class="language-markup">james@james:/etc/netplan$ cat 1-eth1-vlan.yaml
@@ -32,9 +34,9 @@ network:
 
 What this does is:
 
-  * Define a network (version 2 seems to be a requirement but I haven&#8217;t looked it up)
+  * Define a network (version 2 seems to be a requirement but I haven't looked it up)
   * Binding the VLAN to physical NIC ens192
-  * Defining a VLAN, with a VLAN-ID (or &#8220;id&#8221;), an IP address
+  * Defining a VLAN, with a VLAN-ID (or "id"), an IP address
   * Putting in a static route
 
 &nbsp;

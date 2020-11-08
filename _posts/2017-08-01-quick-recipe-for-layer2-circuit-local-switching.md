@@ -19,9 +19,11 @@ I am always forgetting how to do l2circuits in Juniper, partially as there seem 
 
 This is a super quick note-to-self which describes how to locally switch (could simply be extended to LDP-signalled l2circuit over an MPLS core though) a point-to-point circuit, one end VLAN tagged and the other end untagged.
 
-For this example, we have two interfaces &#8211; both on a single MX router called mx2.lab. Our &#8216;tagged&#8217; or NNI facing interface is xe-0/0/1, and we&#8217;re using VLAN 250. Our &#8216;untagged&#8217; or CPE facing interface is xe-2/2/1, not using a VLAN at all (dedicating the whole interface). This can (again) be expanded to use S/C tags, multiple encapsulations etc, but I&#8217;m not going there yet.
+<!--end_excerpt-->
 
-What we&#8217;re aiming to see is traffic coming in on a VLAN tagged interface and being locally switched to an untagged interface. To lab this, I have a VLAN-tagged interface with IP 10.10.40.1/24 and an untagged VM, sitting on 10.10.40.2/24 &#8211; when it&#8217;s configured, they should be able to ping one another.
+For this example, we have two interfaces - both on a single MX router called mx2.lab. Our 'tagged' or NNI facing interface is xe-0/0/1, and we're using VLAN 250. Our 'untagged' or CPE facing interface is xe-2/2/1, not using a VLAN at all (dedicating the whole interface). This can (again) be expanded to use S/C tags, multiple encapsulations etc, but I'm not going there yet.
+
+What we're aiming to see is traffic coming in on a VLAN tagged interface and being locally switched to an untagged interface. To lab this, I have a VLAN-tagged interface with IP 10.10.40.1/24 and an untagged VM, sitting on 10.10.40.2/24 - when it's configured, they should be able to ping one another.
 
 &nbsp;
 

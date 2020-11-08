@@ -1,6 +1,6 @@
 ---
 id: 18
-title: 'Mikrotik Firewall &#8211; For Home Users'
+title: 'Mikrotik Firewall - For Home Users'
 date: 2014-05-21T10:37:32+01:00
 author: james
 excerpt: |
@@ -12,12 +12,14 @@ frutiful_posts_template:
 categories:
   - Uncategorized
 ---
-Mikrotik make routers that are affordable enough for the home user market, but are quite powerful and come without too many training wheels. I&#8217;m using the RB2011UAS-2HnD-IN as a home router, wireless AP and firewall. It&#8217;s powerful and configurable enough to do pretty much anything I&#8217;ve thrown at it &#8211; but out of the box it&#8217;s probably a bit too open to attacks from randos.
+Mikrotik make routers that are affordable enough for the home user market, but are quite powerful and come without too many training wheels. I'm using the RB2011UAS-2HnD-IN as a home router, wireless AP and firewall. It's powerful and configurable enough to do pretty much anything I've thrown at it - but out of the box it's probably a bit too open to attacks from randos.
 
-Here&#8217;s a firewall script I&#8217;ve deployed on the home gateway, with the following parameters
+<!--end_excerpt-->
 
-Home LAN Subnet &#8211; 192.168.88.0/24  
-Home LAN Gateway &#8211; 192.168.88.1
+Here's a firewall script I've deployed on the home gateway, with the following parameters
+
+Home LAN Subnet - 192.168.88.0/24  
+Home LAN Gateway - 192.168.88.1
 
 <pre>/ip firewall filter
 add chain=input comment="default configuration" protocol=icmp
@@ -73,4 +75,4 @@ add action=drop chain=icmp comment="deny all other types"
 add action=masquerade chain=srcnat comment="default configuration" out-interface=pppoe-out1
 </pre>
 
-This firewall script can be used to somewhat lockdown access to your router/home LAN without too much struggle. It&#8217;s probably missing a few bits and pieces, but seems to have put and end to hackers trying to brute-force root access via SSH over the internet &#8211; so far.
+This firewall script can be used to somewhat lockdown access to your router/home LAN without too much struggle. It's probably missing a few bits and pieces, but seems to have put and end to hackers trying to brute-force root access via SSH over the internet - so far.
