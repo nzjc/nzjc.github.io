@@ -3,7 +3,6 @@ id: 171
 title: 'Openstack Newton - Provider Network Issue'
 date: 2017-03-25T16:20:29+00:00
 author: james
-excerpt: |
 layout: post
 guid: https://normally.online/?p=171
 permalink: /openstack-newton-provider-network-issue/

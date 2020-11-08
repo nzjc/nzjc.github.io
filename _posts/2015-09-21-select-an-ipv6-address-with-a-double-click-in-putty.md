@@ -3,7 +3,6 @@ id: 52
 title: Select an IPv6 address with a double-click in PuTTY
 date: 2015-09-21T20:23:26+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=52
 permalink: /select-an-ipv6-address-with-a-double-click-in-putty/

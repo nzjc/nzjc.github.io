@@ -3,7 +3,6 @@ id: 18
 title: 'Mikrotik Firewall - For Home Users'
 date: 2014-05-21T10:37:32+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=18
 permalink: /mikrotik-firewall-for-home-users/

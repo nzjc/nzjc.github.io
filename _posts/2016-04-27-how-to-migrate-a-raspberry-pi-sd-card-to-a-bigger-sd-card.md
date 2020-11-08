@@ -3,7 +3,6 @@ id: 86
 title: How to migrate a Raspberry Pi SD card to a bigger SD Card
 date: 2016-04-27T22:40:29+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=86
 permalink: /how-to-migrate-a-raspberry-pi-sd-card-to-a-bigger-sd-card/

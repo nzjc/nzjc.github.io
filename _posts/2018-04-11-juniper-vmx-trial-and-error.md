@@ -3,7 +3,6 @@ id: 211
 title: Juniper VMX Trial and Error
 date: 2018-04-11T13:38:12+01:00
 author: james
-excerpt: |
 layout: post
 guid: https://normally.online/?p=211
 permalink: /juniper-vmx-trial-and-error/

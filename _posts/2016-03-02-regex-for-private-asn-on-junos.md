@@ -3,7 +3,6 @@ id: 76
 title: Regex for private-ASN on Junos
 date: 2016-03-02T04:00:39+00:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=76
 permalink: /regex-for-private-asn-on-junos/

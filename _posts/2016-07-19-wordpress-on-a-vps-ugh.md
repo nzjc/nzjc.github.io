@@ -3,7 +3,6 @@ id: 112
 title: WordPress on a VPS.. Ugh.
 date: 2016-07-19T09:32:50+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=112
 permalink: /wordpress-on-a-vps-ugh/

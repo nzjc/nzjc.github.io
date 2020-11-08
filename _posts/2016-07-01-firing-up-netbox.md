@@ -3,7 +3,6 @@ id: 105
 title: Firing up NetBox
 date: 2016-07-01T10:15:35+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=105
 permalink: /firing-up-netbox/

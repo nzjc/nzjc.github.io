@@ -3,7 +3,6 @@ id: 156
 title: 'Xiaomi Mi 5s - Overcoming a fake ROM'
 date: 2017-01-09T05:08:16+00:00
 author: james
-excerpt: |
 layout: post
 guid: https://normally.online/?p=156
 permalink: /xiaomi-mi-5s-overcoming-a-fake-rom/

@@ -3,7 +3,6 @@ id: 109
 title: Running your own VPS kind of sucks
 date: 2016-07-19T08:28:44+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=109
 permalink: /running-your-own-vps-kind-of-sucks/

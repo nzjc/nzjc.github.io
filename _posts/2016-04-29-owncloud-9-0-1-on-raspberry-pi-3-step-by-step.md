@@ -3,7 +3,6 @@ id: 82
 title: 'Owncloud 9.0.1 on Raspberry Pi 3 - Step by Step'
 date: 2016-04-29T10:24:08+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=82
 permalink: /owncloud-9-0-1-on-raspberry-pi-3-step-by-step/

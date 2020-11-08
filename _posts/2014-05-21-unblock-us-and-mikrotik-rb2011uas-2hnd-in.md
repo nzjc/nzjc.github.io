@@ -3,7 +3,6 @@ id: 9
 title: Unblock-US and Mikrotik RB2011UAS-2HnD-IN
 date: 2014-05-21T00:04:38+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=9
 permalink: /unblock-us-and-mikrotik-rb2011uas-2hnd-in/

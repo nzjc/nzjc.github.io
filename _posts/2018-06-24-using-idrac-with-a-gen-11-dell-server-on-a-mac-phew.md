@@ -3,7 +3,6 @@ id: 226
 title: 'Using iDRAC with a gen 11 Dell Server (on a Mac) - phew'
 date: 2018-06-24T12:59:03+01:00
 author: james
-excerpt: |
 layout: post
 guid: https://normally.online/?p=226
 permalink: /using-idrac-with-a-gen-11-dell-server-on-a-mac-phew/

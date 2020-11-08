@@ -3,7 +3,6 @@ id: 22
 title: How to reach PPPoE bridge from Mikrotik
 date: 2014-05-21T18:20:28+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=22
 permalink: /how-to-reach-pppoe-bridge-from-mikrotik/

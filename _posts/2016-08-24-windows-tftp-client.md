@@ -3,7 +3,6 @@ id: 127
 title: Best Windows TFTP Client
 date: 2016-08-24T02:39:18+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=127
 permalink: /windows-tftp-client/

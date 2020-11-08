@@ -3,7 +3,6 @@ id: 185
 title: How to connect your Raspberry Pi to eduroam
 date: 2017-07-11T09:10:35+01:00
 author: james
-excerpt: |
 layout: post
 guid: https://normally.online/?p=185
 permalink: /how-to-connect-your-raspberry-pi-to-eduroam/

@@ -3,7 +3,6 @@ id: 178
 title: Very useful Ubuntu 16 Networking Note
 date: 2017-06-20T10:20:46+01:00
 author: james
-excerpt: |
 layout: post
 guid: https://normally.online/?p=178
 permalink: /very-useful-ubuntu-16-networking-note/

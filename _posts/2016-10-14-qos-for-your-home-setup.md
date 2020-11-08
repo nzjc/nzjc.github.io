@@ -3,7 +3,6 @@ id: 137
 title: QoS for your Linux Plex box
 date: 2016-10-14T10:21:17+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=137
 permalink: /qos-for-your-home-setup/

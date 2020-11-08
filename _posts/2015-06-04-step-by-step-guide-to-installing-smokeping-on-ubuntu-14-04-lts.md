@@ -3,7 +3,6 @@ id: 44
 title: Step-by-Step guide to installing Smokeping on Ubuntu 14.04 LTS
 date: 2015-06-04T01:15:37+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=44
 permalink: /step-by-step-guide-to-installing-smokeping-on-ubuntu-14-04-lts/

@@ -3,7 +3,6 @@ id: 146
 title: Source Specific Multicast with iperf
 date: 2016-11-07T22:07:34+00:00
 author: james
-excerpt: |
 layout: post
 guid: https://normally.online/?p=146
 permalink: /source-specific-multicast-with-iperf/

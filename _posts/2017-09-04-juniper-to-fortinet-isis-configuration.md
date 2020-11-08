@@ -3,7 +3,6 @@ id: 193
 title: Juniper to Fortinet ISIS configuration
 date: 2017-09-04T16:52:24+01:00
 author: james
-excerpt: |
 layout: post
 guid: https://normally.online/?p=193
 permalink: /juniper-to-fortinet-isis-configuration/

@@ -3,7 +3,6 @@ id: 32
 title: 3DS Streetpass on Mikrotik RouterOS
 date: 2014-07-25T00:06:40+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=32
 permalink: /3ds-streetpass-on-mikrotik-routeros/

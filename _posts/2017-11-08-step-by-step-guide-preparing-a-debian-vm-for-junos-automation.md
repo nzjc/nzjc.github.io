@@ -3,7 +3,6 @@ id: 201
 title: 'Step by step guide: Preparing a Debian VM for Junos Automation'
 date: 2017-11-08T10:53:49+00:00
 author: james
-excerpt: |
 layout: post
 guid: https://normally.online/?p=201
 permalink: /step-by-step-guide-preparing-a-debian-vm-for-junos-automation/

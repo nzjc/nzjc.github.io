@@ -3,7 +3,6 @@ id: 188
 title: Quick recipe for Layer2 Circuit local switching
 date: 2017-08-01T12:45:12+01:00
 author: james
-excerpt: |
 layout: post
 guid: https://normally.online/?p=188
 permalink: /quick-recipe-for-layer2-circuit-local-switching/

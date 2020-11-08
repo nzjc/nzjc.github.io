@@ -3,7 +3,6 @@ id: 49
 title: 'FreeRADIUS 3 on Ubuntu 14.04 - some notes'
 date: 2015-08-28T02:56:41+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=49
 permalink: /freeradius-3-on-ubuntu-14-04-some-notes/

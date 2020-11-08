@@ -3,7 +3,6 @@ id: 246
 title: One of my favourite apps - ssh-tunnel-manager
 date: 2019-03-27T12:49:20+00:00
 author: james
-excerpt: |
 layout: post
 guid: https://normally.online/?p=246
 permalink: /one-of-my-favourite-apps/

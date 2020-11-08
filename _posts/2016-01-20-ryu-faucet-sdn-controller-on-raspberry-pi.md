@@ -3,7 +3,6 @@ id: 67
 title: RYU Faucet (SDN Controller) on Raspberry Pi
 date: 2016-01-20T11:28:27+00:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=67
 permalink: /ryu-faucet-sdn-controller-on-raspberry-pi/

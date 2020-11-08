@@ -3,7 +3,6 @@ id: 238
 title: Adding a VLAN in Ubuntu 18.04
 date: 2019-02-19T16:19:05+00:00
 author: james
-excerpt: '						'
 layout: post
 guid: https://normally.online/?p=238
 permalink: /adding-a-vlan-in-ubuntu-18-04/

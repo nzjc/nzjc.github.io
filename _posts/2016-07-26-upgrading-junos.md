@@ -3,7 +3,6 @@ id: 116
 title: 'Upgrading Junos issue - not enough space'
 date: 2016-07-26T19:57:05+01:00
 author: james
-excerpt: |
 layout: post
 guid: http://blog.dical.org/?p=116
 permalink: /upgrading-junos/
