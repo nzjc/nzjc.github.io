@@ -26,7 +26,7 @@ pagination:
         </h2>
         <div class="post-summary">
           {%- if site.show_excerpts -%}
-            {{ post.excerpt | strip_html | truncatewords:50 }}
+            {{ post.excerpt }}
           {%- endif -%}
         </div>
       </li>
