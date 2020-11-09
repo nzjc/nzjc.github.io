@@ -55,4 +55,4 @@ With that config loaded on mx2.lab, packets will fly between the untagged VM on 
 
 Hoorah
 
-<img loading="lazy" class="alignnone size-full wp-image-191" src="https://i0.wp.com/blog.dical.org/wp-content/uploads/2017/08/l2circuit-ping.png?resize=580%2C226&#038;ssl=1" alt="" width="580" height="226" srcset="https://i0.wp.com/blog.dical.org/wp-content/uploads/2017/08/l2circuit-ping.png?w=580&ssl=1 580w, https://i0.wp.com/blog.dical.org/wp-content/uploads/2017/08/l2circuit-ping.png?resize=300%2C117&ssl=1 300w" sizes="(max-width: 580px) 85vw, 580px" data-recalc-dims="1" />
+<img loading="lazy" class="alignnone size-full wp-image-191" src="/wp-content/uploads/2017/08/l2circuit-ping.png?resize=580%2C226&#038;ssl=1" alt="" width="580" height="226" srcset="/wp-content/uploads/2017/08/l2circuit-ping.png?w=580&ssl=1 580w, /wp-content/uploads/2017/08/l2circuit-ping.png?resize=300%2C117&ssl=1 300w" sizes="(max-width: 580px) 85vw, 580px" data-recalc-dims="1" />

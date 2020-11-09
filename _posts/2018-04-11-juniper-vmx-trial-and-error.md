@@ -51,13 +51,13 @@ One of the things I find painful with VMX is the quality of the documentation, p
 
 Starting with the vCP OVA:<figure id="attachment_212" aria-describedby="caption-attachment-212" style="width: 604px" class="wp-caption alignnone">
 
-<img loading="lazy" class="wp-image-212 size-full" src="https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vcp_details.png?resize=604%2C627&#038;ssl=1" alt="" width="604" height="627" srcset="https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vcp_details.png?w=604&ssl=1 604w, https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vcp_details.png?resize=289%2C300&ssl=1 289w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" data-recalc-dims="1" /> <figcaption id="caption-attachment-212" class="wp-caption-text">VMWare details of vCP VM</figcaption></figure> 
+<img loading="lazy" class="wp-image-212 size-full" src="/wp-content/uploads/2018/04/vcp_details.png?resize=604%2C627&#038;ssl=1" alt="" width="604" height="627" srcset="/wp-content/uploads/2018/04/vcp_details.png?w=604&ssl=1 604w, /wp-content/uploads/2018/04/vcp_details.png?resize=289%2C300&ssl=1 289w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" data-recalc-dims="1" /> <figcaption id="caption-attachment-212" class="wp-caption-text">VMWare details of vCP VM</figcaption></figure> 
 
 I've set the machine to have 1 CPU, 4GB of RAM and I'm using two port-groups for the NICs, br-ext and br-int, as described earlier in this post.
 
 I also upgraded the VM hardware version to 13 (the OVA comes as version 10). This was based on a blog post I read in the middle of the night. I wish I could say why this mattered (JTAC suggested this only improves things when using KVM-based VMX and SR-IOV, but hey).<figure id="attachment_213" aria-describedby="caption-attachment-213" style="width: 446px" class="wp-caption alignnone">
 
-<img loading="lazy" class="wp-image-213 size-full" src="https://i1.wp.com/blog.dical.org/wp-content/uploads/2018/04/vcp_summary.png?resize=446%2C159&#038;ssl=1" alt="" width="446" height="159" srcset="https://i1.wp.com/blog.dical.org/wp-content/uploads/2018/04/vcp_summary.png?w=446&ssl=1 446w, https://i1.wp.com/blog.dical.org/wp-content/uploads/2018/04/vcp_summary.png?resize=300%2C107&ssl=1 300w" sizes="(max-width: 446px) 85vw, 446px" data-recalc-dims="1" /> <figcaption id="caption-attachment-213" class="wp-caption-text">Summary of vCP</figcaption></figure> 
+<img loading="lazy" class="wp-image-213 size-full" src="/wp-content/uploads/2018/04/vcp_summary.png?resize=446%2C159&#038;ssl=1" alt="" width="446" height="159" srcset="/wp-content/uploads/2018/04/vcp_summary.png?w=446&ssl=1 446w, /wp-content/uploads/2018/04/vcp_summary.png?resize=300%2C107&ssl=1 300w" sizes="(max-width: 446px) 85vw, 446px" data-recalc-dims="1" /> <figcaption id="caption-attachment-213" class="wp-caption-text">Summary of vCP</figcaption></figure> 
 
 Now onto the vFPC VM:<figure id="attachment_214" aria-describedby="caption-attachment-214" style="width: 605px" class="wp-caption alignnone">
 
@@ -67,7 +67,7 @@ As you can see in the screenshot, I have set the 16GB of memory to be reserved. 
 
 The VM hardware version of my working vFPC is version 10.<figure id="attachment_215" aria-describedby="caption-attachment-215" style="width: 443px" class="wp-caption alignnone">
 
-<img loading="lazy" class="size-full wp-image-215" src="https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vfpc_summary.png?resize=443%2C149&#038;ssl=1" alt="" width="443" height="149" srcset="https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vfpc_summary.png?w=443&ssl=1 443w, https://i0.wp.com/blog.dical.org/wp-content/uploads/2018/04/vfpc_summary.png?resize=300%2C101&ssl=1 300w" sizes="(max-width: 443px) 85vw, 443px" data-recalc-dims="1" /> <figcaption id="caption-attachment-215" class="wp-caption-text">Summary of vFPC</figcaption></figure> 
+<img loading="lazy" class="size-full wp-image-215" src="/wp-content/uploads/2018/04/vfpc_summary.png?resize=443%2C149&#038;ssl=1" alt="" width="443" height="149" srcset="/wp-content/uploads/2018/04/vfpc_summary.png?w=443&ssl=1 443w, /wp-content/uploads/2018/04/vfpc_summary.png?resize=300%2C101&ssl=1 300w" sizes="(max-width: 443px) 85vw, 443px" data-recalc-dims="1" /> <figcaption id="caption-attachment-215" class="wp-caption-text">Summary of vFPC</figcaption></figure> 
 
 It's best to set up all of this hardware in advance of switching either of the VMs on. Once you do, your vFPC should pull down a DHCP address from your br-ext bridge (mine is set up as a port group on my vSwitch0, which also shares kernel management for the ESXi itself). The vCP won't get a DHCP address by default, as that's not supported on fxp interfaces. I configure mine via the ESXi console.
 

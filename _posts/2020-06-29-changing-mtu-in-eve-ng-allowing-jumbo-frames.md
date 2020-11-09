@@ -19,7 +19,7 @@ When studying or otherwise, EVE-NG is the way I prefer to try things out. One th
 
 In this topology, I have 2 routers, connected with dual Ethernet links, configured in a LAG. This doesn't affect MTU at all, I just thought I'd mention it so it's not confusing.
 
-<figure id="attachment_317" aria-describedby="caption-attachment-317" style="width: 235px" class="wp-caption aligncenter"><img loading="lazy" class="wp-image-317 size-full" src="https://i1.wp.com/blog.dical.org/wp-content/uploads/2020/06/topo.png?resize=235%2C93&#038;ssl=1" alt="" width="235" height="93" data-recalc-dims="1" /><figcaption id="caption-attachment-317" class="wp-caption-text">Topology of this little lab</figcaption></figure>
+<figure id="attachment_317" aria-describedby="caption-attachment-317" style="width: 235px" class="wp-caption aligncenter"><img loading="lazy" class="wp-image-317 size-full" src="/wp-content/uploads/2020/06/topo.png?resize=235%2C93&#038;ssl=1" alt="" width="235" height="93" data-recalc-dims="1" /><figcaption id="caption-attachment-317" class="wp-caption-text">Topology of this little lab</figcaption></figure>
 
 The link between these routers (ae0) is set to a layer-2 MTU of 9192, which is the maximum for the platform (Juniper vSRX 3.0). This means that we should be able to send an IP packet (like a ping) of over 9000 bytes.. And yet - we can't:
 

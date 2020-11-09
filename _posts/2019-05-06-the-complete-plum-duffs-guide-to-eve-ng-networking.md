@@ -66,11 +66,11 @@ An aside: The "routers" I am using here are Juniper vSRX security devices, runni
 
 Creating a new device on our topology is very simple, adding two devices with the default settings of 4 Gig Ethernet interfaces, each consuming 4GB RAM and 2 CPU cores (these resources belong to the Ubuntu server remember, so build out your lab to suit your needs and if you run out - buy a bigger server!)
 
-<img loading="lazy" class="aligncenter wp-image-275 size-full" src="https://i1.wp.com/blog.dical.org/wp-content/uploads/2019/05/srxxx.jpg?resize=597%2C744&#038;ssl=1" alt="" width="597" height="744" srcset="https://i1.wp.com/blog.dical.org/wp-content/uploads/2019/05/srxxx.jpg?w=597&ssl=1 597w, https://i1.wp.com/blog.dical.org/wp-content/uploads/2019/05/srxxx.jpg?resize=241%2C300&ssl=1 241w" sizes="(max-width: 597px) 85vw, 597px" data-recalc-dims="1" /> 
+<img loading="lazy" class="aligncenter wp-image-275 size-full" src="/wp-content/uploads/2019/05/srxxx.jpg?resize=597%2C744&#038;ssl=1" alt="" width="597" height="744" srcset="/wp-content/uploads/2019/05/srxxx.jpg?w=597&ssl=1 597w, /wp-content/uploads/2019/05/srxxx.jpg?resize=241%2C300&ssl=1 241w" sizes="(max-width: 597px) 85vw, 597px" data-recalc-dims="1" /> 
 
 You can use the add node feature to add as many devices as you like at once, set parameters and tweak them - but I generally just use the defaults and only adjust the number of network interfaces I want each one to have. You can always edit them later!
 
-<img loading="lazy" class="aligncenter size-medium wp-image-264" src="https://i0.wp.com/blog.dical.org/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.28.36.png?resize=300%2C106&#038;ssl=1" alt="" width="300" height="106" srcset="https://i0.wp.com/blog.dical.org/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.28.36.png?resize=300%2C106&ssl=1 300w, https://i0.wp.com/blog.dical.org/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.28.36.png?w=578&ssl=1 578w" sizes="(max-width: 300px) 85vw, 300px" data-recalc-dims="1" /> 
+<img loading="lazy" class="aligncenter size-medium wp-image-264" src="/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.28.36.png?resize=300%2C106&#038;ssl=1" alt="" width="300" height="106" srcset="/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.28.36.png?resize=300%2C106&ssl=1 300w, /wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.28.36.png?w=578&ssl=1 578w" sizes="(max-width: 300px) 85vw, 300px" data-recalc-dims="1" /> 
 
 Here is my full config for this test for vSRX1:
 
@@ -129,7 +129,7 @@ Now - that's great - but how is EVE-NG doing this? These two routers don't \*rea
 
 Clicking on the capture for ge-0/0/0 on vSRX1
 
-<img loading="lazy" class="aligncenter size-medium wp-image-265" src="https://i0.wp.com/blog.dical.org/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.52.24.png?resize=300%2C234&#038;ssl=1" alt="" width="300" height="234" srcset="https://i0.wp.com/blog.dical.org/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.52.24.png?resize=300%2C234&ssl=1 300w, https://i0.wp.com/blog.dical.org/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.52.24.png?w=754&ssl=1 754w" sizes="(max-width: 300px) 85vw, 300px" data-recalc-dims="1" /> 
+<img loading="lazy" class="aligncenter size-medium wp-image-265" src="/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.52.24.png?resize=300%2C234&#038;ssl=1" alt="" width="300" height="234" srcset="/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.52.24.png?resize=300%2C234&ssl=1 300w, /wp-content/uploads/2019/05/Screenshot-2019-05-06-at-22.52.24.png?w=754&ssl=1 754w" sizes="(max-width: 300px) 85vw, 300px" data-recalc-dims="1" /> 
 
 That directs our browser to this URL, which can be caught by a pcap utility (if EVE-NG is setup to handle that) - or just give away which bridge is in use:
 
@@ -192,7 +192,7 @@ I've added a new "Network" from the EVE-NG menu. I set it to use Management (Clo
 
 Then I connected it to vSRX2 like so:
 
-<img loading="lazy" class="aligncenter size-medium wp-image-267" src="https://i1.wp.com/blog.dical.org/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-23.05.32.png?resize=300%2C239&#038;ssl=1" alt="" width="300" height="239" srcset="https://i1.wp.com/blog.dical.org/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-23.05.32.png?resize=300%2C239&ssl=1 300w, https://i1.wp.com/blog.dical.org/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-23.05.32.png?w=596&ssl=1 596w" sizes="(max-width: 300px) 85vw, 300px" data-recalc-dims="1" /> 
+<img loading="lazy" class="aligncenter size-medium wp-image-267" src="/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-23.05.32.png?resize=300%2C239&#038;ssl=1" alt="" width="300" height="239" srcset="/wp-content/uploads/2019/05/Screenshot-2019-05-06-at-23.05.32.png?resize=300%2C239&ssl=1 300w, /wp-content/uploads/2019/05/Screenshot-2019-05-06-at-23.05.32.png?w=596&ssl=1 596w" sizes="(max-width: 300px) 85vw, 300px" data-recalc-dims="1" /> 
 
 Now, I configure an interface on vSRX2 (it should be loopback0, but that's a job for another day - so now it's ge-0/0/1) and give it an address in my home LAN (192.168.0.112)... Next thing you know, I can SSH directly into the vSRX from my laptop. This majorly speeds up lab work, automation etc and makes life a LOT easier.
 
